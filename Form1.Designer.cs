@@ -36,11 +36,11 @@
             openToolStripMenuItem = new ToolStripMenuItem();
             saveToolStripMenuItem = new ToolStripMenuItem();
             dataGridView1 = new DataGridView();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
             Fish = new DataGridViewTextBoxColumn();
             Numerical = new DataGridViewTextBoxColumn();
             Percent = new DataGridViewTextBoxColumn();
-            statusStrip1 = new StatusStrip();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             statusStrip1.SuspendLayout();
@@ -66,14 +66,14 @@
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(103, 22);
+            openToolStripMenuItem.Size = new Size(180, 22);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(103, 22);
+            saveToolStripMenuItem.Size = new Size(180, 22);
             saveToolStripMenuItem.Text = "Save";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
@@ -106,6 +106,21 @@
             dataGridView1.Size = new Size(725, 516);
             dataGridView1.TabIndex = 1;
             // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 518);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(725, 22);
+            statusStrip1.TabIndex = 2;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(104, 17);
+            toolStripStatusLabel1.Text = "Created by PackJC";
+            // 
             // Fish
             // 
             Fish.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -123,22 +138,8 @@
             // 
             Percent.HeaderText = "Percent";
             Percent.Name = "Percent";
+            Percent.ReadOnly = true;
             Percent.Width = 200;
-            // 
-            // statusStrip1
-            // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 518);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(725, 22);
-            statusStrip1.TabIndex = 2;
-            statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(104, 17);
-            toolStripStatusLabel1.Text = "Created by PackJC";
             // 
             // GebsFishCalculator
             // 
@@ -170,10 +171,10 @@
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripMenuItem saveToolStripMenuItem;
         private DataGridView dataGridView1;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabel1;
         private DataGridViewTextBoxColumn Fish;
         private DataGridViewTextBoxColumn Numerical;
         private DataGridViewTextBoxColumn Percent;
-        private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using Microsoft.VisualBasic.ApplicationServices;
 using FishCalculator.Properties;
+using System.Security.Cryptography;
 
 namespace FishCalculator
 {
@@ -31,9 +32,11 @@ namespace FishCalculator
         {
             dataGridView1.Rows.Clear();
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Gebsfish Config (.cfg)|*.cfg";
+
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                List<decimal> chanceTotal = new List<decimal>();
+                List<double> chanceTotal = new List<double>();
                 foreach (string line in File.ReadAllLines(openFileDialog.FileName))
                 {
                     var parts = line.Split('=');
@@ -43,7 +46,7 @@ namespace FishCalculator
                     }
 
                 }
-                decimal total = 0;
+                double total = 0;
                 foreach (var x in chanceTotal)
                 {
                     total += x;
@@ -54,7 +57,7 @@ namespace FishCalculator
                     var parts = line.Split('=');
                     if (parts.Length == 2 && int.TryParse(parts[1], out int chance))
                     {
-                        dataGridView1.Rows.Add(parts[0], chance, Math.Abs(total / chance));
+                        dataGridView1.Rows.Add(parts[0], chance, Math.Round((double)chance / total * 1000) + "%");
                     }
                 }
 
@@ -96,6 +99,9 @@ namespace FishCalculator
         {
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Saving Gebsfish Config";
+            saveFileDialog.Filter = "Gebsfish Config (*.cfg)|*.cfg";
+
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 StringBuilder fileContent = new StringBuilder();
